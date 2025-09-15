@@ -1,6 +1,8 @@
 # CellenONE-picoprinting
 Shiny apps for generating robot field files to assemble synthetic bacterial communities or print custom patterns on agar plates.
 
+Info about the CellenONE X1: https://www.cellenion.com/products/cellenone-x1/
+
 This repository has two apps: 
 
   1. shiny_pattern: a shiny app that can convert a sqaure image of a pattern or logo (png or jpeg only) into the field file for the CellenONE X1 picoprinter to create a bacterial pattern plate.  
@@ -91,6 +93,11 @@ Ensure there are no leading blank rows or column above the 96-well plate layout.
 **Step 6:** Download the field file generated. This can be used with the picoprinter to istantly generate the field coordinates for assembling all your syncoms. 
 
 Happy Pico-Printing!
+
+# Relavant publications:
+1. Thiruppathy, D., Lekbua, A., Coker, J., Weng, Y., Askarian, F., Kousha, A., Marotz, C., Hauw, A., Tjuanta, M., Nizet, V., & Zengler, K. (2025). Protocol for the development, assembly, and testing of a synthetic skin microbial community. STAR Protocols, 6(2), 103714. https://doi.org/10.1016/j.xpro.2025.103714
+
+2. Coker, J., Zhalnina, K., Marotz, C., Thiruppathy, D., Tjuanta, M., D’Elia, G., Hailu, R., Mahosky, T., Rowan, M., Northen, T. R., & Zengler, K. (2022). A Reproducible and Tunable Synthetic Soil Microbial Community Provides New Insights into Microbial Ecology. mSystems, 7(6). https://doi.org/10.1128/msystems.00951-22
      
 
 

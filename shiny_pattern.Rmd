@@ -78,7 +78,6 @@ ui <- fluidPage(
       fileInput("pattern_image", "Upload a square Image", accept = c("image/png", "image/jpeg")),
       fileInput("target_file", "Upload the target based field file", accept = c("target_file/fld")),
       textInput("bacteria_well", "Enter the well ID in the probe plate that contains your bacteria (format: ColumnRow, eg: first well would be A1, A2, A3....A12, B1"),
-      #sliderInput("erode", "Make the outline of your logo thicker to improve resolution", min = 0, max = 6, value = 0, step = 0.01),
       sliderInput("thresh", "Grayscale Threshold", min = 0, max = 1, value = 0.5, step = 0.01),
       downloadButton("field_file_download", "Download Field File")
     ),
@@ -115,11 +114,10 @@ server <- function(input, output, session) {
         # Fallback: grayscale if no alpha
         gray <- 0.2989*img[,,1] + 0.5870*img[,,2] + 0.1140*img[,,3] #standard luminence conversion from color to grayscale
         mask <- ifelse(gray < input$thresh, 1, 0)
-        #mask <- image::ero
+      
       }
     } else if (tolower(ext) %in% c("jpg", "jpeg")) {
       img <- jpeg::readJPEG(input$pattern_image$datapath)
-      
       #check if image is square. 
       if(dim(img)[1] != dim(img)[2]){
         stop("Image needs to be sqaure. Resize to square and try again.")
@@ -127,6 +125,8 @@ server <- function(input, output, session) {
       
       gray <- 0.2989*img[,,1] + 0.5870*img[,,2] + 0.1140*img[,,3] #standard luminence conversion from color to grayscale
       mask <- ifelse(gray < input$thresh, 1, 0)
+     
+      
     } else {
       stop("Unsupported file format")
     }
@@ -199,7 +199,7 @@ server <- function(input, output, session) {
       for (j in 1:size_y) {
         coord <- paste0(i, "/", j)
         if (mat_bin[size_y - (i-1), j] == 1) {
-          line <- paste(coord, paste("1", input$bacteria_well, sep = ""), "1,", sep = "\t")
+          line <- paste(coord, paste("1", input$bacteria_well, ",", sep = ""), "1,", sep = "\t")
         } else {
           line <- paste(coord, "", "", sep = "\t")
         }

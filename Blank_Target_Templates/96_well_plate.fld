@@ -1,0 +1,28 @@
+Comment: 
+Field(s): 
+X = 1
+Y = 1
+Start Point
+Left: 5
+Up: 5
+X Field Gap:2500/
+Y Field Gap:2500/
+Pattern Size: 
+X = 8
+Y = 12
+Dot Pitch: 
+X = 9200
+Y = 9100
+Line Spotting:No
+Direction = Y
+Spot Pitch = 100
+Frequency = 0
+Volume (µl/cm) = 0.100000
+Type = Pitch
+Field Data: 
+[0, 0, 0]
+1/1		
+1/2		
+1/3		
+1/4		
+1/5	
